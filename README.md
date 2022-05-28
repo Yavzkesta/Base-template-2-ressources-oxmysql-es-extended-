@@ -8,6 +8,16 @@ Meilleure menu admin FiveM -> https://youtu.be/fvzCPfNt2nk
 
 Drogue builder -> https://youtu.be/LkBHU4Jh9Dc
 
+# Creation DataBase Hebergtonserv.fr
+
+![image](https://user-images.githubusercontent.com/48090660/170804736-3583f626-b114-4cc8-9e2d-5233faddc50f.png)
+
+Model type création de la database Bien laissé % dans connection
+![image](https://user-images.githubusercontent.com/48090660/170804752-7cb6ea67-a021-47bf-a817-ba58d4884750.png)
+
+Une fois créé allez sur le lien phpmyadmin pour importer le fichier sql.sql
+
+
 # Téléchargement
 
 Lien de téléchargement : https://flix.horizon-dev.xyz/nextcloud/s/5QYkKpJ3n7eSk2Y
