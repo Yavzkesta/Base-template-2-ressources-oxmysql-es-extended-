@@ -14826,7 +14826,7 @@ var require_mysql2 = __commonJS({
 });
 
 // src/config/index.ts
-var resourceName, mysql_debug, mysql_ui, mysql_slow_query_warning, mysql_connection_string, mysql_transaction_isolation_level, connectionOptions;
+var resourceName, mysql_debug, mysql_ui, mysql_slow_query_warning, mysql_connection_string, mysql_transaction_isolation_level;
 var init_config = __esm({
   "src/config/index.ts"() {
     resourceName = GetCurrentResourceName();
@@ -14848,16 +14848,6 @@ var init_config = __esm({
         default:
           return `${query} READ COMMITTED`;
       }
-    })();
-    connectionOptions = (() => {
-      if (mysql_connection_string.includes("mysql://"))
-        return { uri: mysql_connection_string };
-      const options = mysql_connection_string.replace(/(?:host(?:name)|ip|server|data\s?source|addr(?:ess)?)=/gi, "host=").replace(/(?:user\s?(?:id|name)?|uid)=/gi, "user=").replace(/(?:pwd|pass)=/gi, "password=").replace(/(?:db)=/gi, "database=").split(";").reduce((connectionInfo, parameter) => {
-        const [key, value] = parameter.split("=");
-        connectionInfo[key] = value;
-        return connectionInfo;
-      }, {});
-      return options;
     })();
   }
 });
@@ -15911,9 +15901,9 @@ var init_dist = __esm({
   }
 });
 
-// node_modules/.pnpm/web-streams-polyfill@3.2.0/node_modules/web-streams-polyfill/dist/ponyfill.es2018.js
+// node_modules/.pnpm/web-streams-polyfill@3.2.1/node_modules/web-streams-polyfill/dist/ponyfill.es2018.js
 var require_ponyfill_es2018 = __commonJS({
-  "node_modules/.pnpm/web-streams-polyfill@3.2.0/node_modules/web-streams-polyfill/dist/ponyfill.es2018.js"(exports, module2) {
+  "node_modules/.pnpm/web-streams-polyfill@3.2.1/node_modules/web-streams-polyfill/dist/ponyfill.es2018.js"(exports, module2) {
     (function(global2, factory) {
       typeof exports === "object" && typeof module2 !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : (global2 = typeof globalThis !== "undefined" ? globalThis : global2 || self, factory(global2.WebStreamsPolyfill = {}));
     })(exports, function(exports2) {
@@ -19090,10 +19080,13 @@ var require_ponyfill_es2018 = __commonJS({
       const byteLengthSizeFunction = (chunk) => {
         return chunk.byteLength;
       };
-      Object.defineProperty(byteLengthSizeFunction, "name", {
-        value: "size",
-        configurable: true
-      });
+      try {
+        Object.defineProperty(byteLengthSizeFunction, "name", {
+          value: "size",
+          configurable: true
+        });
+      } catch (_a) {
+      }
       class ByteLengthQueuingStrategy {
         constructor(options) {
           assertRequiredArgument(options, 1, "ByteLengthQueuingStrategy");
@@ -19138,10 +19131,13 @@ var require_ponyfill_es2018 = __commonJS({
       const countSizeFunction = () => {
         return 1;
       };
-      Object.defineProperty(countSizeFunction, "name", {
-        value: "size",
-        configurable: true
-      });
+      try {
+        Object.defineProperty(countSizeFunction, "name", {
+          value: "size",
+          configurable: true
+        });
+      } catch (_a) {
+      }
       class CountQueuingStrategy {
         constructor(options) {
           assertRequiredArgument(options, 1, "CountQueuingStrategy");
@@ -19846,10 +19842,10 @@ var init_esm_min = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/errors/base.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/errors/base.js
 var FetchBaseError;
 var init_base = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/errors/base.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/errors/base.js"() {
     FetchBaseError = class extends Error {
       constructor(message, type) {
         super(message);
@@ -19866,10 +19862,10 @@ var init_base = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/errors/fetch-error.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/errors/fetch-error.js
 var FetchError;
 var init_fetch_error = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/errors/fetch-error.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/errors/fetch-error.js"() {
     init_base();
     FetchError = class extends FetchBaseError {
       constructor(message, type, systemError) {
@@ -19883,10 +19879,10 @@ var init_fetch_error = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/is.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/is.js
 var NAME, isURLSearchParameters, isBlob, isAbortSignal, isDomainOrSubdomain;
 var init_is = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/is.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/is.js"() {
     NAME = Symbol.toStringTag;
     isURLSearchParameters = (object) => {
       return typeof object === "object" && typeof object.append === "function" && typeof object.delete === "function" && typeof object.get === "function" && typeof object.getAll === "function" && typeof object.has === "function" && typeof object.set === "function" && typeof object.sort === "function" && object[NAME] === "URLSearchParams";
@@ -19965,7 +19961,7 @@ var init_from = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/multipart-parser.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/multipart-parser.js
 var multipart_parser_exports = {};
 __export(multipart_parser_exports, {
   toFormData: () => toFormData
@@ -20059,7 +20055,7 @@ async function toFormData(Body2, ct) {
 }
 var s, S, f2, F, LF, CR, SPACE, HYPHEN, COLON, A, Z, lower, noop, MultipartParser;
 var init_multipart_parser = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/multipart-parser.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/multipart-parser.js"() {
     init_from();
     init_esm_min();
     s = 0;
@@ -20318,7 +20314,7 @@ var init_multipart_parser = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/body.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/body.js
 async function consumeBody(data) {
   if (data[INTERNALS].disturbed) {
     throw new TypeError(`body used already for: ${data.url}`);
@@ -20365,7 +20361,7 @@ async function consumeBody(data) {
 }
 var import_node_stream, import_node_util, import_node_buffer, pipeline, INTERNALS, Body, clone, getNonSpecFormDataBoundary, extractContentType, getTotalBytes, writeToStream;
 var init_body = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/body.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/body.js"() {
     import_node_stream = __toESM(require("node:stream"), 1);
     import_node_util = require("node:util");
     import_node_buffer = require("node:buffer");
@@ -20543,7 +20539,7 @@ var init_body = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/headers.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/headers.js
 function fromRawHeaders(headers = []) {
   return new Headers(headers.reduce((result, value, index, array) => {
     if (index % 2 === 0) {
@@ -20562,7 +20558,7 @@ function fromRawHeaders(headers = []) {
 }
 var import_node_util2, import_node_http, validateHeaderName, validateHeaderValue, Headers;
 var init_headers = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/headers.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/headers.js"() {
     import_node_util2 = require("node:util");
     import_node_http = __toESM(require("node:http"), 1);
     validateHeaderName = typeof import_node_http.default.validateHeaderName === "function" ? import_node_http.default.validateHeaderName : (name) => {
@@ -20705,10 +20701,10 @@ var init_headers = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/is-redirect.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/is-redirect.js
 var redirectStatus, isRedirect;
 var init_is_redirect = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/is-redirect.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/is-redirect.js"() {
     redirectStatus = /* @__PURE__ */ new Set([301, 302, 303, 307, 308]);
     isRedirect = (code) => {
       return redirectStatus.has(code);
@@ -20716,10 +20712,10 @@ var init_is_redirect = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/response.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/response.js
 var INTERNALS2, Response;
 var init_response = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/response.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/response.js"() {
     init_headers();
     init_body();
     init_is_redirect();
@@ -20815,10 +20811,10 @@ var init_response = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/get-search.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/get-search.js
 var getSearch;
 var init_get_search = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/get-search.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/get-search.js"() {
     getSearch = (parsedURL) => {
       if (parsedURL.search) {
         return parsedURL.search;
@@ -20830,7 +20826,7 @@ var init_get_search = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/referrer.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/referrer.js
 function stripURLForUseAsAReferrer(url, originOnly = false) {
   if (url == null) {
     return "no-referrer";
@@ -20958,7 +20954,7 @@ function parseReferrerPolicyFromHeader(headers) {
 }
 var import_node_net, ReferrerPolicy, DEFAULT_REFERRER_POLICY;
 var init_referrer = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/utils/referrer.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/utils/referrer.js"() {
     import_node_net = require("node:net");
     ReferrerPolicy = /* @__PURE__ */ new Set([
       "",
@@ -20975,10 +20971,10 @@ var init_referrer = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/request.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/request.js
 var import_node_url, import_node_util3, INTERNALS3, isRequest, doBadDataWarn, Request, getNodeRequestOptions;
 var init_request = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/request.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/request.js"() {
     import_node_url = require("node:url");
     import_node_util3 = require("node:util");
     init_headers();
@@ -21005,7 +21001,9 @@ var init_request = __esm({
           throw new TypeError(`${parsedURL} is an url with embedded credentials.`);
         }
         let method = init.method || input.method || "GET";
-        method = method.toUpperCase();
+        if (/^(delete|get|head|options|post|put)$/i.test(method)) {
+          method = method.toUpperCase();
+        }
         if ("data" in init) {
           doBadDataWarn();
         }
@@ -21164,10 +21162,10 @@ var init_request = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/errors/abort-error.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/errors/abort-error.js
 var AbortError;
 var init_abort_error = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/errors/abort-error.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/errors/abort-error.js"() {
     init_base();
     AbortError = class extends FetchBaseError {
       constructor(message, type = "aborted") {
@@ -21177,7 +21175,7 @@ var init_abort_error = __esm({
   }
 });
 
-// node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/index.js
+// node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/index.js
 async function fetch(url, options_) {
   return new Promise((resolve, reject) => {
     const request = new Request(url, options_);
@@ -21437,7 +21435,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
 }
 var import_node_http2, import_node_https, import_node_zlib, import_node_stream2, import_node_buffer2, supportedSchemas;
 var init_src = __esm({
-  "node_modules/.pnpm/node-fetch@3.2.3/node_modules/node-fetch/src/index.js"() {
+  "node_modules/.pnpm/node-fetch@3.2.4/node_modules/node-fetch/src/index.js"() {
     import_node_http2 = __toESM(require("node:http"), 1);
     import_node_https = __toESM(require("node:https"), 1);
     import_node_zlib = __toESM(require("node:zlib"), 1);
@@ -21529,6 +21527,32 @@ var typeCast = (field, next) => {
 };
 
 // src/database/index.ts
+var parseUri = (connectionString) => {
+  const splitMatchGroups = connectionString.match(new RegExp("^(?:([^:/?#.]+):)?(?://(?:([^/?#]*)@)?([\\w\\d\\-\\u0100-\\uffff.%]*)(?::([0-9]+))?)?([^?#]+)?(?:\\?([^#]*))?$"));
+  if (!splitMatchGroups)
+    throw new Error(`mysql_connection_string structure was invalid (${connectionString})`);
+  const authTarget = splitMatchGroups[2] ? splitMatchGroups[2].split(":") : [];
+  const options = __spreadValues({
+    user: authTarget[0] || void 0,
+    password: authTarget[1] || void 0,
+    host: splitMatchGroups[3],
+    port: parseInt(splitMatchGroups[4]),
+    database: splitMatchGroups[5].replace(/^\/+/, "")
+  }, splitMatchGroups[6] && splitMatchGroups[6].split("&").reduce((connectionInfo, parameter) => {
+    const [key, value] = parameter.split("=");
+    connectionInfo[key] = value;
+    return connectionInfo;
+  }, {}));
+  return options;
+};
+var connectionOptions = (() => {
+  const options = mysql_connection_string.includes("mysql://") ? parseUri(mysql_connection_string) : mysql_connection_string.replace(/(?:host(?:name)|ip|server|data\s?source|addr(?:ess)?)=/gi, "host=").replace(/(?:user\s?(?:id|name)?|uid)=/gi, "user=").replace(/(?:pwd|pass)=/gi, "password=").replace(/(?:db)=/gi, "database=").split(";").reduce((connectionInfo, parameter) => {
+    const [key, value] = parameter.split("=");
+    connectionInfo[key] = value;
+    return connectionInfo;
+  }, {});
+  return options;
+})();
 var pool;
 var serverReady = false;
 setTimeout(() => {
@@ -21712,7 +21736,10 @@ var rawQuery = async (type, invokingResource, query, parameters, cb) => {
       if (err)
         return reject(err);
       logQuery(invokingResource, query, executionTime, parameters);
-      resolve(cb ? cb(parseResponse(type, result)) : null);
+      try {
+        resolve(cb ? cb(parseResponse(type, result)) : null);
+      } catch (err2) {
+      }
     });
   }).catch((err) => {
     throw new Error(`${invokingResource} was unable to execute a query!
@@ -21725,13 +21752,22 @@ ${`${query} ${JSON.stringify(parameters)}`}`);
 var isTransactionQuery = (query) => query.query !== void 0;
 var parseTransaction = (invokingResource, queries, parameters, cb) => {
   if (!Array.isArray(queries))
-    throw new Error(`Transaction queries must be array type`);
+    throw new Error(`Transaction queries must be array, received '${typeof queries}'.`);
   if (cb && typeof cb !== "function")
     cb = void 0;
   if (parameters && typeof parameters === "function")
     cb = parameters;
   if (parameters === null || parameters === void 0 || typeof parameters === "function")
     parameters = [];
+  if (queries[0][0]) {
+    const transactions2 = queries.map((query) => {
+      if (typeof query[1] !== "object")
+        throw new Error(`Transaction parameters must be array or object, received '${typeof query[1]}'.`);
+      const [parsedQuery, parsedParameters] = parseArguments(invokingResource, query[0], query[1]);
+      return { query: parsedQuery, params: parsedParameters };
+    });
+    return { transactions: transactions2, cb };
+  }
   const transactions = queries.map((query) => {
     const [parsedQuery, parsedParameters] = parseArguments(invokingResource, isTransactionQuery(query) ? query.query : query, isTransactionQuery(query) ? query.parameters || query.values : parameters || []);
     return { query: parsedQuery, params: parsedParameters };
@@ -21772,7 +21808,7 @@ ${e2.sql || `${transactionError(transactions, parameters)}`}^0`);
 
 // src/utils/parseExecute.ts
 var executeType = (query) => {
-  switch (query.replace(/\s.*/, "")) {
+  switch (query.substring(0, query.indexOf(" "))) {
     case "SELECT":
       return null;
     case "INSERT":
@@ -21823,8 +21859,6 @@ var rawExecute = async (invokingResource, query, parameters, cb) => {
   await scheduleTick();
   const connection = await pool.promise().getConnection();
   try {
-    if (type !== null)
-      await connection.beginTransaction();
     const placeholders = query.split("?").length - 1;
     for (let values of parameters) {
       const executionTime = process.hrtime();
@@ -21841,30 +21875,29 @@ var rawExecute = async (invokingResource, query, parameters, cb) => {
       logQuery(invokingResource, query, process.hrtime(executionTime)[1] / 1e6, values);
     }
     single = response.length === 1;
-    if (type !== null)
-      connection.commit();
   } catch (err) {
-    if (connection && type !== null)
-      connection.rollback();
     throw new Error(`${invokingResource} was unable to execute a query!
 	${err.message}
 	${err.sql}`);
   } finally {
     connection.release();
   }
-  if (cb) {
-    if (single) {
-      if (type === null) {
-        if (response[0][0] && Object.keys(response[0][0]).length === 1)
-          cb(Object.values(response[0][0])[0]);
-        else
-          cb(response[0][0]);
+  try {
+    if (cb) {
+      if (single) {
+        if (type === null) {
+          if (response[0][0] && Object.keys(response[0][0]).length === 1)
+            cb(Object.values(response[0][0])[0]);
+          else
+            cb(response[0][0]);
+        } else {
+          cb(response[0]);
+        }
       } else {
-        cb(response[0]);
+        cb(response);
       }
-    } else {
-      cb(response);
     }
+  } catch (err) {
   }
 };
 
