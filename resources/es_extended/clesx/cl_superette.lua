@@ -72,7 +72,7 @@ end
 
 CreateThread(function()
     for k, v in pairs(Config.LocationApu) do 
-        ESX.CreateBlipsKingder(59, 0.75, 4, "Location de véhicules", vector3(v.x, v.y, v.z))
+        ESX.CreateBlipsKingder(59, 0.75, 4, "Superettes", vector3(v.x, v.y, v.z))
     end
     while true do 
         local waitapu = 7000
