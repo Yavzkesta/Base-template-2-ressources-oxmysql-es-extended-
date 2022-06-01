@@ -1,3 +1,6 @@
+if ConfigUseJobAmbulance == true then 
+
+
 _print = print
 TriggerServerEvent = TriggerServerEvent
 _NetworkExplodeVehicle = NetworkExplodeVehicle
@@ -1593,3 +1596,4 @@ TriggerServerEvent('emssapl:deleteallappels', supprimer)
 end)
 
 
+end
