@@ -22,6 +22,12 @@ Une fois créé allez sur le lien phpmyadmin pour importer le fichier sql.sql
 
 Lien de téléchargement : https://flix.horizon-dev.xyz/nextcloud/s/5QYkKpJ3n7eSk2Y
 
+# Updates
+
+Ligne 5 à 8 , vous pouvez désormais configurer se que vous voulez pas sur la base.
+
+Ligne 17 à 20 , vous pouvez changer l'argent de spawn en banque et money.
+
 # Information
 
 Base template 2 ressources 
