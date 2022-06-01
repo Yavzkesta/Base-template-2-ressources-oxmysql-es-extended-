@@ -1,3 +1,4 @@
+if ConfigUseJobAmbulance == true then 
 
 local playersHealing, deadPlayers = {}, {}
 
@@ -531,3 +532,5 @@ ESX.RegisterServerCallback('ambulance:playerinventory', function(source, cb)
     end
     cb(all_itemsss)
 end)
+
+end
