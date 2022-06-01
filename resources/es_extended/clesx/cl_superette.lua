@@ -1,4 +1,5 @@
 
+if ConfigUseSuperette == true then
 
 local superettekingder = false 
 MainSuperette = RageUI.CreateMenu("Superette", "wsh akhy fidele")
@@ -104,3 +105,5 @@ CreateThread(function()
         Wait(waitapu)
     end 
 end)
+
+end
