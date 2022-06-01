@@ -24,7 +24,7 @@ Lien de téléchargement : https://flix.horizon-dev.xyz/nextcloud/s/5QYkKpJ3n7eS
 
 # Updates
 
-Ligne 5 à 8 , vous pouvez désormais configurer se que vous voulez pas sur la base.
+Ligne 5 à 9 , vous pouvez désormais configurer se que vous voulez pas sur la base.
 
 Ligne 17 à 20 , vous pouvez changer l'argent de spawn en banque et money.
 
