@@ -5,7 +5,8 @@ Config.Locale = 'fr'
 ConfigUseAmmunation = true --- mettre sur false si vous voulez plus des ammunations
 ConfigUseSuperette = true --- mettre sur false si vous voulez plus des superettes
 ConfigUseLocationVeh = true --- mettre sur false si vous voulez plus de la location de véhicule
-ConfigUseHudContext = true --- mettre sur false si vous voulez l'hud sur la touche W
+ConfigUseHudContext = true --- mettre sur false si vous voulez plus l'hud sur la touche W
+ConfigUseJobAmbulance = true --- mettre sur false si vous voulez plus le job ambulance
 
 
 Config.Accounts = {
