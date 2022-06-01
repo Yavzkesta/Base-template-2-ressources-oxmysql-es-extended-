@@ -1,3 +1,6 @@
+if ConfigUseLocationVeh == true then 
+
+
 local locakingder = false 
 MainLocation = RageUI.CreateMenu("Location", "wsh akhy fidele")
 MainLocation.Closed = function()
@@ -81,3 +84,6 @@ CreateThread(function()
         Wait(onverra)
     end 
 end)
+
+
+end
