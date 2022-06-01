@@ -1,13 +1,23 @@
 Config = {}
 Config.Locale = 'fr'
 
+
+ConfigUseAmmunation = true --- mettre sur false si vous voulez plus des ammunations
+ConfigUseSuperette = true --- mettre sur false si vous voulez plus des superettes
+ConfigUseLocationVeh = true --- mettre sur false si vous voulez plus de la location de véhicule
+ConfigUseHudContext = true --- mettre sur false si vous voulez l'hud sur la touche W
+
+
 Config.Accounts = {
 	bank = _U('account_bank'),
 	black_money = _U('account_black_money'),
 	money = _U('account_money')
 }
 
-Config.StartingAccountMoney 	= {bank = 10000}
+Config.StartingAccountMoney 	= {
+	money = 45000,
+	bank = 10000
+}
 
 Config.EnableSocietyPayouts 	= true -- pay from the society account that the player is employed at? Requirement: esx_society
 Config.EnableHud            	= false -- enable the default hud? Display current job and accounts (black, bank & cash)
