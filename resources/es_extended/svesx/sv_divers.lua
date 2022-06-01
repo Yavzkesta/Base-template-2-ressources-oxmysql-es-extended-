@@ -1,31 +1,38 @@
 
-ESX.RegisterServerCallback('sucemoikehba', function(source, cb)
-    if #(GetEntityCoords(GetPlayerPed(source)) - Config.location) < 10.0 then 
-    local xPlayer = ESX.GetPlayerFromId(source)
 
-          if xPlayer.getMoney() >= 700 then
-            xPlayer.removeMoney(700)
-            cb(true)
+if ConfigUseLocationVeh == true then 
+
+  ESX.RegisterServerCallback('sucemoikehba', function(source, cb)
+      if #(GetEntityCoords(GetPlayerPed(source)) - Config.location) < 10.0 then 
+      local xPlayer = ESX.GetPlayerFromId(source)
+
+            if xPlayer.getMoney() >= 700 then
+              xPlayer.removeMoney(700)
+              cb(true)
+            else
+              cb(false)
+            end
+        end
+    end)
+    
+
+  ESX.RegisterServerCallback('sucemoikehbaa', function(source, cb)
+  if #(GetEntityCoords(GetPlayerPed(source)) - Config.location) < 10.0 then 
+  local xPlayer = ESX.GetPlayerFromId(source)
+
+          if xPlayer.getMoney() >= 1200 then
+          xPlayer.removeMoney(1200)
+          cb(true)
           else
-            cb(false)
+          cb(false)
           end
       end
   end)
-  
 
-ESX.RegisterServerCallback('sucemoikehbaa', function(source, cb)
-if #(GetEntityCoords(GetPlayerPed(source)) - Config.location) < 10.0 then 
-local xPlayer = ESX.GetPlayerFromId(source)
+end
 
-        if xPlayer.getMoney() >= 1200 then
-        xPlayer.removeMoney(1200)
-        cb(true)
-        else
-        cb(false)
-        end
-    end
-end)
 
+if ConfigUseSuperette == true then
 
 RegisterNetEvent('droplitemsuperette')
 AddEventHandler('droplitemsuperette', function(v, taurarienaugive)
@@ -42,6 +49,10 @@ AddEventHandler('droplitemsuperette', function(v, taurarienaugive)
           xPlayer.showNotification("~r~Vous n'avez pas assez d'argent.~s~")
       end
 end)
+
+end
+
+if ConfigUseAmmunation == true then 
 
 RegisterNetEvent('droplitemArmurie')
 AddEventHandler('droplitemArmurie', function(v, armuriefucktrigger)
@@ -118,3 +129,6 @@ AddEventHandler('envoislemisper', function(weapon, armuriefucktrigger)
         xPlayer.showNotification("~r~Vous n'avez pas assez !")
     end
 end)
+
+
+end
