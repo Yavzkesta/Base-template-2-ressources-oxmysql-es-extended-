@@ -154,7 +154,7 @@ creatorByKingder = function()
                         onListChange = function(i, Item)
                             if peaulist ~= i then
                                 peaulist = i;
-                                TriggerEvent("skinchanger:change", "skin", visagelist)
+                                TriggerEvent("skinchanger:change", "skin", peaulist)
                             end
                         end,
                     })
