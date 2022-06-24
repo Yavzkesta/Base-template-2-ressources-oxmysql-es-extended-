@@ -1,3 +1,5 @@
+if ConfigUseAmmunation == true then 
+
 local Armuriekingder = false 
 MainArmurie = RageUI.CreateMenu("Armurie", "wsh akhy fidele")
 subArmurie = RageUI.CreateSubMenu(MainArmurie, "Accessoires", "wsh akhy fidele")
@@ -114,3 +116,5 @@ CreateThread(function()
         Wait(waitArmurie)
     end
 end)
+	
+end
